@@ -9,7 +9,7 @@ pagination:
     {% for news in pagination.items %}
     <li>
         <div class="text-sm prose rounded-lg border p-3 !max-w-full text-left">
-        <h4 class="!m-0">From <a href="{{news.siteUrl}}">{{news.origin}}</a>:</h4>
+        <h4 class="!m-0">From <a href="http://{{news.site}}">{{news.origin}}</a>:</h4>
         <h3 class="!m-0"><a href="{{ news.url }}">{{ news.title }}</a></h3>
         <p><small>{{ news.date }}</small></p>
         {{ news.description }}...

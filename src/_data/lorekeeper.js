@@ -13,7 +13,8 @@ function removeHTMLTags(html) {
 function normalizeItem(item, feed) {
     return {
         'origin' : feed.title,
-        'siteUrl' : feed.url,
+        // LK doesn't give us the origin url for some reason
+        'site' : feed.self.split('/')[2],
         'url' : item.url,
         'title' : item.title,
         'date' : item.updated,
