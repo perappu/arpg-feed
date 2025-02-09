@@ -13,9 +13,16 @@
     <div class="p-7">
     <main class="prose-sm md:prose-base lg:prose-lg prose-slate text-center">
       <h3>The Great Big ARPG Feed</h3>
-      <a href="{{ 'feed.xml' | url }}">RSS Link</a>
+      <div>
+      <a class="text-sm hover:underline" href="{{ 'feed.xml' | url }}">RSS Link</a><br>
+      <a class="text-sm hover:underline" href="https://forms.gle/fGkxvUncwBhLS9xu9">Submit Your Site</a>
+      </div>
     {{ content | safe }}
     </main>
+    <footer class="text-xs text-center">
+      put together by <a href="http://perappu.blog" class="hover:underline" >perappu</a><br>
+      <a href="https://github.com/perappu/arpg-feed" class="hover:underline" >github</a>
+      </footer>
     </div>
   </body>
 </html>

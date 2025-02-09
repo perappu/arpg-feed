@@ -1,12 +1,7 @@
-# Hella Simple Eleventy + Tailwind CSS Starter
+# The Great Big ARPG Feed
 
-Just 2 dependencies, 2 npm scripts, and 1 Tailwind UI freebie to get you started.
+This is an attempt to unify many feeds from Lorekeeper sites into one.
 
-## Preview
-https://hella-simple-eleventy-tailwindcss.netlify.app/
+http://arpg.perappu.blog
 
-## Usage
-- Clone this repo
-- Run `npm i` to install the dependencies
-- For development run `npm run serve` and point your browser to http://localhost:8080/
-- For production run `npm run build` 
+Submit your site here: https://forms.gle/bJrkqadVBBoA4CoM8

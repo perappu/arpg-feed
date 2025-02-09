@@ -1,12 +1,9 @@
 import { parseFeed } from '@rowanmanning/feed-parser';
 import { DateTime } from 'luxon';
 import {JSDOM} from "jsdom"
+import feeds from "./urls.json" with { type: "json" };
 
-const feeds = [
-    'https://fenroo.com/feeds/news'
-    ];
-
-global.DOMParser = new JSDOM().window.DOMParser
+global.DOMParser = new JSDOM().window.DOMParser;
 
 function removeHTMLTags(html) {
     const doc = new global.DOMParser().parseFromString(html, 'text/html');
