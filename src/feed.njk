@@ -1,0 +1,37 @@
+---json
+{
+  "permalink": "feed.xml",
+  "eleventyExcludeFromCollections": true,
+  "metadata": {
+    "title": "The Great Big ARPG Feed",
+    "description": "A feed combining multiple ARPGs.",
+    "language": "en",
+    "base": "https://example.com/",
+    "author": {
+      "name": "stokori"
+    }
+  }
+}
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="{{ metadata.language or page.lang }}">
+  <title>{{ metadata.title }}</title>
+  <subtitle>{{ metadata.description }}</subtitle>
+  <link href="{{ permalink | htmlBaseUrl(metadata.base) }}" rel="self" />
+  <link href="{{ metadata.base | addPathPrefixToFullUrl }}" />
+  <updated>{{ collections.posts | getNewestCollectionItemDate }}</updated>
+  <id>{{ metadata.base | addPathPrefixToFullUrl }}</id>
+  <author>
+    <name>{{ metadata.author.name }}</name>
+  </author>
+  {%- for post in collections.feed %}
+  {%- set absolutePostUrl %}{{ post.url }}{% endset %}
+  <entry>
+    <title>{{ post.origin }} - {{ post.title }}</title>
+    <link href="{{ absolutePostUrl }}" />
+    <updated>{{ post.date | dateToRfc3339  }}</updated>
+    <id>{{ absolutePostUrl }}</id>
+    <content type="html">{{ post.description }}</content>
+  </entry>
+  {%- endfor %}
+</feed>

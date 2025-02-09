@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html class="overflow-y-scroll" lang="en">
+  <head>
+        <link rel="stylesheet" href="{{ '/styles.css' | url }}">
+        <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
+        <script defer src="/js/alpine.js"></script>
+        <meta charset="UTF-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>The Great Big ARPG Feed</title>
+  </head>
+  <body>
+    <div class="p-7">
+    <main class="prose-sm md:prose-base lg:prose-lg prose-slate text-center">
+      <h3>The Great Big ARPG Feed</h3>
+      <a href="{{ 'feed.xml' | url }}">RSS Link</a>
+    {{ content | safe }}
+    </main>
+    </div>
+  </body>
+</html>

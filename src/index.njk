@@ -1,0 +1,30 @@
+---
+layout: base
+pagination:
+  data: collections.feed
+  size: 2
+---
+
+<ul>
+    {% for news in pagination.items %}
+    <li>
+        <div class="text-sm prose rounded-lg border p-3 !max-w-full text-left">
+        <h4 class="!m-0">From <a href="{{news.siteUrl}}">{{news.origin}}</a>:</h4>
+        <h3 class="!m-0"><a href="{{ news.url }}">{{ news.title }}</a></h3>
+        <p><small>{{ news.date }}</small></p>
+        {{ news.description }}...
+        </div>
+    </li>
+    {% endfor %}
+</ul>
+<nav aria-labelledby="pagination text-sm m-auto">
+  <ol class="text-center">
+    <li class="inline">{% if page.url != pagination.href.first %}<a href="{{ pagination.href.first }}">First</a>{% else %}First{% endif %}</li>
+    <li class="inline">{% if pagination.href.previous %}<a href="{{ pagination.href.previous }}">Previous</a>{% else %}Previous{% endif %}</li>
+{%- for pageEntry in pagination.pages %}
+    <li class="inline"><a href="{{ pagination.hrefs[ loop.index0 ] }}"{% if page.url == pagination.hrefs[ loop.index0 ] %} aria-current="page"{% endif %}>{{ loop.index }}</a></li>
+{%- endfor %}
+    <li class="inline">{% if pagination.href.next %}<a href="{{ pagination.href.next }}">Next</a>{% else %}Next{% endif %}</li>
+    <li class="inline">{% if page.url != pagination.href.last %}<a href="{{ pagination.href.last }}">Last</a>{% else %}Last{% endif %}</li>
+  </ol>
+</nav>
