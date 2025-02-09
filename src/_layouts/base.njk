@@ -12,11 +12,16 @@
   <body>
     <div class="p-7">
     <main class="prose-sm md:prose-base lg:prose-lg prose-slate text-center">
-      <h3>The Great Big ARPG Feed</h3>
+      <h3 class="font-bold">The Great Big ARPG Feed</h3>
       <div>
-      <a class="text-sm hover:underline" href="{{ 'feed.xml' | url }}">RSS Link</a><br>
+      <a class="text-sm hover:underline" href="{{ 'feed.xml' | url }}">RSS Feed Link</a> |
       <a class="text-sm hover:underline" href="https://forms.gle/fGkxvUncwBhLS9xu9">Submit Your Site</a>
       </div>
+      <div class="text-sm mt-1">
+        <b>What is RSS?</b>
+        <p class="!mt-0 !mb-1">RSS, or <a class="hover:underline" href=https://en.wikipedia.org/wiki/RSS">Really Simple Syndication</a>, is a way to receive updates from websites. Tired of keeping track of Discord pings for the species you're in? Use RSS!</p>
+        <p class="!mt-1">Don't know what reader to use? Try <a class="hover:underline" href="https://feeder.co">Feeder</a>, <a class="hover:underline" href="https://tt-rss.org">TT RSS</a>, or integrate it with your existing <a href="https://github.com/joethei/obsidian-rss" class="hover:underline">Obsidian notes</a> or <a href="https://ifttt.com/connect/feed/notion" class="hover:underline">Notion</a>.</p>
+        </div>
     {{ content | safe }}
     </main>
     <footer class="text-xs text-center">

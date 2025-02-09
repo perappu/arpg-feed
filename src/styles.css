@@ -3,3 +3,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+a {
+    @apply underline hover:text-slate-500;
+}
