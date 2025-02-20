@@ -38,17 +38,9 @@ export async function lorekeeper() {
         });
     }
 
-    const chromiumPack = "https://github.com/Sparticuz/chromium/releases/download/v132.0.0/chromium-v132.0.0-pack.tar";
-
     const cluster = await Cluster.launch({
         concurrency: Cluster.CONCURRENCY_CONTEXT,
         maxConcurrency: 2,
-        puppeteerOptions: {
-            args: chromium.args,
-            executablePath: await chromium.executablePath(chromiumPack),
-            args: chromium.args,
-            headless: false,
-        }
     });
 
     await cluster.task(async ({ page, data: url }) => {
