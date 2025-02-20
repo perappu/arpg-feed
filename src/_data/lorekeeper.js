@@ -46,7 +46,7 @@ export async function lorekeeper() {
         puppeteerOptions: {
             args: chromium.args,
             executablePath: await chromium.executablePath,
-            args: edgeChromium.args,
+            args: chromium.args,
             headless: false,
         }
     });
