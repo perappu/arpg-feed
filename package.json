@@ -11,6 +11,9 @@
     "build:11ty": "eleventy",
     "build:css": "tailwindcss -i src/styles.css -o _site/styles.css --postcss"
   },
+  "engines": {
+    "node": "^22"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",

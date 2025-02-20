@@ -47,6 +47,7 @@ export async function lorekeeper() {
             args: chromium.args,
             executablePath: await chromium.executablePath(chromiumPack),
             headless: true,
+            ignoreDefaultArgs: ['--disable-extensions']
         }
     });
 
