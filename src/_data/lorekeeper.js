@@ -45,9 +45,9 @@ export async function lorekeeper() {
         maxConcurrency: 2,
         puppeteerOptions: {
             args: chromium.args,
-            executablePath: await chromium.executablePath(chromiumPack),
-            headless: true,
-            ignoreDefaultArgs: ['--disable-extensions']
+            executablePath: await chromium.executablePath,
+            args: edgeChromium.args,
+            headless: false,
         }
     });
 
