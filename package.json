@@ -31,6 +31,7 @@
     "@11ty/eleventy-plugin-rss": "^2.0.3",
     "@alpinejs/collapse": "^3.14.3",
     "@rowanmanning/feed-parser": "^1.1.1",
+    "@sparticuz/chromium-min": "^132.0.0",
     "jsdom": "^26.0.0",
     "lodash": "^4.17.21",
     "puppeteer": "^24.2.1",
