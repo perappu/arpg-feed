@@ -45,7 +45,7 @@ export async function lorekeeper() {
         maxConcurrency: 2,
         puppeteerOptions: {
             args: chromium.args,
-            executablePath: await chromium.executablePath,
+            executablePath: await chromium.executablePath(chromiumPack),
             args: chromium.args,
             headless: false,
         }
