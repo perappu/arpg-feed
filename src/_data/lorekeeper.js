@@ -99,7 +99,7 @@ export  async function lorekeeper() {
             defaultViewport: chromium.defaultViewport,
             executablePath: process.env.CHROME_EXECUTABLE_PATH || await chromium.executablePath('https://perappu-public.s3.us-west-004.backblazeb2.com/chromium-v126.0.0-pack.tar'),
           },
-    });
+    }); 
 
     await cluster.task(async ({ page, data: url }) => {
         await page.goto(url);
