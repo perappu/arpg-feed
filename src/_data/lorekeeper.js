@@ -104,8 +104,8 @@ export  async function lorekeeper() {
 
     await browser.close();
 
-    screenshots.forEach(function(item, i) {
-        screenshots[i] = item[i]['screenshot'];
+    screenshots.forEach(function(screen, i) {
+        screenshots[i] = items[i]['screenshot'];
     });
 
     items.sort((a, b) => (new Date(b.date)) - (new Date(a.date)));
