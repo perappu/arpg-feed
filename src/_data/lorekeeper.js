@@ -46,6 +46,8 @@ export  async function lorekeeper() {
     const cluster = await Cluster.launch({
         concurrency: Cluster.CONCURRENCY_CONTEXT,
         maxConcurrency: 2,
+        puppeteerOptions:
+        {ignoreDefaultArgs: ['--disable-extensions']}
     });
 
     await cluster.task(async ({ page, data: url }) => {
