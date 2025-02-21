@@ -77,7 +77,6 @@ export  async function lorekeeper() {
     const screenshots = [];
 
     for (let i = 0; i < feeds.length; i++) {
-
         try {
             const response = await fetch(feeds[i]);
             const feed = parseFeed(await response.text());
@@ -95,13 +94,13 @@ export  async function lorekeeper() {
         headless: true
     });
 
-    items.forEach(async item => {
+    //items.forEach(async item => {
         const page = await browser.newPage();
-        await page.goto(item['url']);
+        await page.goto(item[0]['url']);
         //page.setViewport({ width: 1920, height: 1080 });
         const screen = await page.screenshot({ encoding: "base64" });
         screenshots.push(screen);
-    });
+    //});
 
     await browser.close();
 
