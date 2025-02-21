@@ -1,8 +1,6 @@
 import { parseFeed } from '@rowanmanning/feed-parser';
-import { DateTime } from 'luxon';
 import {JSDOM} from "jsdom"
 import feeds from "./urls.json" with { type: "json" };
-import puppeteer from 'puppeteer';
 import { Cluster } from 'puppeteer-cluster';
 
 global.DOMParser = new JSDOM().window.DOMParser;
@@ -27,8 +25,6 @@ function normalizeItem(item, feed) {
 export  async function lorekeeper() {
 
     const items = [];
-
-    const browser = await puppeteer.launch({ headless: true });
 
     for (let i = 0; i < feeds.length; i++) {
         const response = await fetch(feeds[i]);
@@ -62,8 +58,6 @@ export  async function lorekeeper() {
     });
 
     items.sort((a, b) => (new Date(b.date)) - (new Date(a.date)));
-
-    await browser.close();
 
     return items;
 
