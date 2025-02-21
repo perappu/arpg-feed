@@ -59,5 +59,5 @@ export async function getScreenshot(url) {
 
     await browser.close();
 
-    return screen;
+    return await screen;
 };

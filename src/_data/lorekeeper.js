@@ -24,7 +24,7 @@ function normalizeItem(item, feed) {
     }
 }
 
-export  async function lorekeeper() {
+export async function lorekeeper() {
 
     const items = [];
     const screenshots = [];
