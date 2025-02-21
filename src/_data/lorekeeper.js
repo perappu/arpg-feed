@@ -94,7 +94,7 @@ export  async function lorekeeper() {
         puppeteerOptions: {
             headless: false,
             args: args,
-            executablePath: await chromium.executablePath("https://f004.backblazeb2.com/file/perappu-public/chromium-v132.0.0-pack.tar")
+            executablePath: await chromium.executablePath()
           },
     });
 
