@@ -1,11 +1,7 @@
 import { parseFeed } from '@rowanmanning/feed-parser';
 import {JSDOM} from "jsdom";
-import { Cluster } from 'puppeteer-cluster';
 import * as fs from 'node:fs';
-import chromium from '@sparticuz/chromium-min';
-import puppeteer from 'puppeteer-core';
-
-chromium.setGraphicsMode = false;
+import getScreenshot from './libs/getScreenshot';
 
 const args = [
     // '--user-data-dir=./tmp', // enable to run locally and disable the below
@@ -88,25 +84,9 @@ export  async function lorekeeper() {
         }
     }
 
-    const browser = await puppeteer.launch({
-        args: args,
-        executablePath: await chromium.executablePath('https://github.com/Sparticuz/chromium/releases/download/v126.0.0/chromium-v126.0.0-pack.tar'),
-        headless: true
+    items.forEach(async function(item, i) {
+       item['screenshot'] = await getScreenshot(item['url']);
     });
-
-    //items.forEach(async item => {
-        const page = await browser.newPage();
-        await page.goto(items[0]['url'], { waitUntil: ['domcontentloaded', 'networkidle2'] });
-       //page.setViewport({ width: 1920, height: 1080 });
-       const screen = await page.screenshot({ encoding: "base64" });
-       items[0]['screenshot'] = screen;
-    //});
-
-    await browser.close();
-
-    //screenshots.forEach(function(screen, i) {
-     //   items[i]['screenshot'] = screen;
-    //});
 
     items.sort((a, b) => (new Date(b.date)) - (new Date(a.date)));
 
