@@ -96,7 +96,7 @@ export  async function lorekeeper() {
 
     //items.forEach(async item => {
         const page = await browser.newPage();
-        await page.goto(item[0]['url']);
+        await page.goto(item[0]['url'], { waitUntil: ['domcontentloaded', 'networkidle2'] });
         //page.setViewport({ width: 1920, height: 1080 });
         const screen = await page.screenshot({ encoding: "base64" });
         screenshots.push(screen);
