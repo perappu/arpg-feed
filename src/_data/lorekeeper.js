@@ -91,7 +91,7 @@ export  async function lorekeeper() {
 
     const cluster = await Cluster.launch({
         concurrency: Cluster.CONCURRENCY_CONTEXT,
-        maxConcurrency: 2,
+        maxConcurrency: 1,
         puppeteer,
         puppeteerOptions: {
             headless: chromium.headless,
