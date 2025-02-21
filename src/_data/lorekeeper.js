@@ -89,31 +89,21 @@ export  async function lorekeeper() {
         }
     }
 
-    const cluster = await Cluster.launch({
-        concurrency: Cluster.CONCURRENCY_CONTEXT,
-        maxConcurrency: 1,
-        puppeteer,
-        puppeteerOptions: {
-            headless: chromium.headless,
-            args: args,
-            defaultViewport: chromium.defaultViewport,
-            executablePath: process.env.CHROME_EXECUTABLE_PATH || await chromium.executablePath('https://perappu-public.s3.us-west-004.backblazeb2.com/chromium-v126.0.0-pack.tar'),
-          },
-    }); 
+    const browser = await puppeteer.launch({
+        args: args,
+        executablePath: await chromium.executablePath('https://perappu-public.s3.us-west-004.backblazeb2.com/chromium-v126.0.0-pack.tar'),
+        headless: true
+    });
 
-    await cluster.task(async ({ page, data: url }) => {
-        await page.goto(url);
+    items.forEach(async item => {
+        const page = await browser.newPage();
+        await page.goto(item['url']);
         //page.setViewport({ width: 1920, height: 1080 });
         const screen = await page.screenshot({ encoding: "base64" });
         screenshots.push(screen);
     });
 
-    items.forEach(item => {
-        cluster.queue(item['url']);
-    });
-
-    await cluster.idle();
-    await cluster.close();
+    await browser.close();
 
     items.forEach(function(item, i) {
         item['screenshot'] = screenshots[i];
