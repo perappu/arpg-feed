@@ -71,7 +71,7 @@ function normalizeItem(item, feed) {
     }
 }
 
-export async function lorekeeper() {
+export  async function lorekeeper() {
 
     const items = [];
     const screenshots = [];
@@ -88,7 +88,7 @@ export async function lorekeeper() {
         }
     }
 
-    /*const browser = await puppeteer.launch({
+    const browser = await puppeteer.launch({
         args: args,
         executablePath: await chromium.executablePath('https://github.com/Sparticuz/chromium/releases/download/v126.0.0/chromium-v126.0.0-pack.tar'),
         headless: true
@@ -102,34 +102,7 @@ export async function lorekeeper() {
         screenshots.push(screen);
     });
 
-    await browser.close();*/
-
-    const cluster = await Cluster.launch({
-        concurrency: Cluster.CONCURRENCY_CONTEXT,
-        maxConcurrency: 2,
-        // provide the puppeteer-core library
-        puppeteer,
-        // and provide executable path (in this case for a Chrome installation in Ubuntu)
-        puppeteerOptions: {
-            args: args,
-            executablePath: await chromium.executablePath('https://github.com/Sparticuz/chromium/releases/download/v126.0.0/chromium-v126.0.0-pack.tar'),
-            headless: true
-        },
-    });
-
-    await cluster.task(async ({ page, data: url }) => {
-        await page.goto(url, { waitUntil: ['domcontentloaded', 'networkidle2'] });
-       //page.setViewport({ width: 1920, height: 1080 });
-       const screen = await page.screenshot({ encoding: "base64" });
-        screenshots.push(screen);
-    });
-
-    items.forEach(async item => {
-        cluster.queue(item['url']);
-    });
-
-    await cluster.idle();
-    await cluster.close();
+    await browser.close();
 
     screenshots.forEach(function(screen, i) {
         screenshots[i] = items[i]['screenshot'];
