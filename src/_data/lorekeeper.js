@@ -94,8 +94,9 @@ export  async function lorekeeper() {
         maxConcurrency: 2,
         puppeteer,
         puppeteerOptions: {
-            headless: false,
+            headless: chromium.headless,
             args: args,
+            defaultViewport: chromium.defaultViewport,
             executablePath: process.env.CHROME_EXECUTABLE_PATH || await chromium.executablePath('https://perappu-public.s3.us-west-004.backblazeb2.com/chromium-v126.0.0-pack.tar'),
           },
     });
