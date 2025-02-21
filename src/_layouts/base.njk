@@ -9,11 +9,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <title>The Great Big ARPG Feed</title>
   </head>
-  <body class="bg-slate-300">
+  <body>
     <div class="p-7">
     <main class="prose-sm md:prose-base lg:prose-lg prose-slate text-center">
-      <div class="rounded-lg bg-white p-3">
-      <h3 class="font-bold !m-0">The Great Big ARPG Feed</h3>
+      <h3 class="font-bold">The Great Big ARPG Feed</h3>
       <div>
       <a class="text-sm hover:underline" href="{{ 'feed.xml' | url }}">RSS Feed Link</a> |
       <a class="text-sm hover:underline" href="https://forms.gle/fGkxvUncwBhLS9xu9">Submit Your Site</a>
@@ -24,10 +23,9 @@
         <p class="!mt-1 !mb-1">If you're on Lorekeeper version 3 or above, it's already there! No setup required, just submit your site!</p>
         <p class="!mt-1">Don't know what reader to use? Try <a class="hover:underline" href="https://feeder.co">Feeder</a>, <a class="hover:underline" href="https://tt-rss.org">TT RSS</a>, or integrate it with your existing <a href="https://github.com/joethei/obsidian-rss" class="hover:underline">Obsidian notes</a> or <a href="https://ifttt.com/connect/feed/notion" class="hover:underline">Notion</a>.</p>
         </div>
-        </div>
     {{ content | safe }}
     </main>
-    <footer class="text-xs text-center m-3">
+    <footer class="text-xs text-center">
       put together by <a href="http://perappu.blog" class="hover:underline" >perappu</a><br>
       <a href="https://github.com/perappu/arpg-feed" class="hover:underline" >github</a>
       </footer>
