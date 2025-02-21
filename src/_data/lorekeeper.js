@@ -45,13 +45,14 @@ export  async function lorekeeper() {
 
     const cluster = await Cluster.launch({
         concurrency: Cluster.CONCURRENCY_CONTEXT,
-        maxConcurrency: 2,
+        maxConcurrency: 1,
     });
 
     await cluster.task(async ({ page, data: url }) => {
         await page.goto(url);
         page.setViewport({ width: 1920, height: 1080 });
         const screen = await page.screenshot({ encoding: "base64" });
+        console.log(url);
         screenshots.push(screen);
     });
 
