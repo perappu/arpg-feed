@@ -1,7 +1,7 @@
 import { parseFeed } from '@rowanmanning/feed-parser';
 import {JSDOM} from "jsdom";
 import * as fs from 'node:fs';
-import getScreenshot from './libs/getScreenshot';
+import getScreenshot from './libs/getScreenshot.js';
 
 const args = [
     // '--user-data-dir=./tmp', // enable to run locally and disable the below
