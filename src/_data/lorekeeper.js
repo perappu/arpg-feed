@@ -94,13 +94,13 @@ export  async function lorekeeper() {
         headless: true
     });
 
-    items.forEach(async item => {
+    //items.forEach(async item => {
         const page = await browser.newPage();
-        await page.goto(item[0]['url'], { waitUntil: ['domcontentloaded', 'networkidle2'] });
+        await page.goto(items[0]['url'], { waitUntil: ['domcontentloaded', 'networkidle2'] });
        //page.setViewport({ width: 1920, height: 1080 });
        const screen = await page.screenshot({ encoding: "base64" });
         screenshots.push(screen);
-    });
+    //});
 
     await browser.close();
 
