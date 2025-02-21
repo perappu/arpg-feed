@@ -99,14 +99,14 @@ export  async function lorekeeper() {
         await page.goto(items[0]['url'], { waitUntil: ['domcontentloaded', 'networkidle2'] });
        //page.setViewport({ width: 1920, height: 1080 });
        const screen = await page.screenshot({ encoding: "base64" });
-        screenshots.push(screen);
+       items[0]['screenshot'] = screen;
     //});
 
     await browser.close();
 
-    screenshots.forEach(function(screen, i) {
-        items[i-1]['screenshot'] = screen;
-    });
+    //screenshots.forEach(function(screen, i) {
+     //   items[i]['screenshot'] = screen;
+    //});
 
     items.sort((a, b) => (new Date(b.date)) - (new Date(a.date)));
 
