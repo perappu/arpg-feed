@@ -103,7 +103,7 @@ export  async function lorekeeper() {
 
     await cluster.task(async ({ page, data: url }) => {
         await page.goto(url);
-        page.setViewport({ width: 1920, height: 1080 });
+        //page.setViewport({ width: 1920, height: 1080 });
         const screen = await page.screenshot({ encoding: "base64" });
         screenshots.push(screen);
     });
