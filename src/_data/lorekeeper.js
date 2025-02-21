@@ -2,7 +2,8 @@ import { parseFeed } from '@rowanmanning/feed-parser';
 import {JSDOM} from "jsdom";
 import { Cluster } from 'puppeteer-cluster';
 import * as fs from 'node:fs';
-import chromium from '@sparticuz/chromium';
+import chromium from '@sparticuz/chromium-min';
+import puppeteer from 'puppeteer-core';
 
 chromium.setGraphicsMode = false;
 
@@ -91,10 +92,11 @@ export  async function lorekeeper() {
     const cluster = await Cluster.launch({
         concurrency: Cluster.CONCURRENCY_CONTEXT,
         maxConcurrency: 2,
+        puppeteer,
         puppeteerOptions: {
             headless: false,
             args: args,
-            executablePath: await chromium.executablePath()
+            executablePath: process.env.CHROME_EXECUTABLE_PATH || await chromium.executablePath('https://perappu-public.s3.us-west-004.backblazeb2.com/chromium-v126.0.0-pack.tar'),
           },
     });
 
