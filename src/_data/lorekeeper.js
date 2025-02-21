@@ -24,10 +24,18 @@ function normalizeItem(item, feed) {
     }
 }
 
+const resolvePromisesSeq = async (tasks) => {
+    const results = [];
+    for (const task of tasks) {
+      results.push(await task);
+    }
+  
+    return results;
+  };
+
 export async function lorekeeper() {
 
     const items = [];
-    const screenshots = [];
 
     for (let i = 0; i < feeds.length; i++) {
         try {
@@ -41,12 +49,22 @@ export async function lorekeeper() {
         }
     }
 
+    const promises = [];
+
     items.forEach(async function(item, i) {
-       item['screenshot'] = await getScreenshot(item['url']);
+       promises.push(getScreenshot(item['url']));
     });
+
+    const screenshots = await resolvePromisesSeq(promises);
 
     items.sort((a, b) => (new Date(b.date)) - (new Date(a.date)));
 
-    return items;
+    const result =
+    {
+        'items' : items,
+        'screenshots': screenshots
+    };
+
+    return result;
 
 };

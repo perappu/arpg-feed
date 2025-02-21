@@ -5,7 +5,7 @@ pagination:
   size: 10
 ---
 
-{% for news in pagination.items %}
+{% for news in pagination.items.items %}
   <div class="flex text-sm prose rounded-lg bg-white border p-3 !max-w-full text-left m-3">
     <div class="m-1 mr-3 w-1/3">
       <img src="data:image/png;base64, {{ news.screenshot }}" style="min-width:250px;"/>
