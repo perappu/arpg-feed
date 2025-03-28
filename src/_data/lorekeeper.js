@@ -45,7 +45,7 @@ export  async function lorekeeper() {
 
     const cluster = await Cluster.launch({
         concurrency: Cluster.CONCURRENCY_CONTEXT,
-        maxConcurrency: 1,
+        maxConcurrency: 3,
     });
 
     await cluster.task(async ({ page, data: url }) => {
