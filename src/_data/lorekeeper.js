@@ -42,7 +42,7 @@ export  async function lorekeeper() {
             continue;
         }
     }
-
+/* 
     const cluster = await Cluster.launch({
         concurrency: Cluster.CONCURRENCY_CONTEXT,
         maxConcurrency: 3,
@@ -65,7 +65,7 @@ export  async function lorekeeper() {
 
     items.forEach(function(item, i) {
         item['screenshot'] = screenshots[i];
-    });
+    }); */
 
     items.sort((a, b) => (new Date(b.date)) - (new Date(a.date)));
 
